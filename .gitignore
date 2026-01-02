@@ -1,0 +1,32 @@
+# --- File Sensibili (Richiesti) ---
+.env
+emails/*.eml
+contracts/.env
+
+# --- File di Output ZK e Prove (Richiesti) ---
+# Ignora input, prove e witness generati per motivi di privacy e spazio
+**/input.json
+**/proof.json
+**/public.json
+**/witness.wtns
+
+# --- File di Build Crittografici (Pesanti) ---
+# Le chiavi .zkey e i file Powers of Tau sono troppo pesanti per GitHub
+*.zkey
+*.ptau
+circuits/build
+
+# --- Smart Contracts (Foundry/Solidity) ---
+contracts/out/
+contracts/cache/
+contracts/lib/
+
+# --- Node.js ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Sistema Operativo ---
+.DS_Store
+Thumbs.db
