@@ -1,6 +1,6 @@
 # --- File Sensibili (Richiesti) ---
 .env
-emails/*.eml
+*.eml
 contracts/.env
 
 # --- File di Output ZK e Prove (Richiesti) ---
