@@ -13,11 +13,15 @@ Il circuito crittografico genera circa **871.000 vincoli**. Per evitare errori d
 - **Node.js**: Esegui gli script aumentando l'allocazione della memoria
 ### Nota sui file Crittografici 
 Per ragioni di spazio, i file .zkey e .ptau non sono inclusi nella repository. Per eseguire lo script di automazione è necessario:
-1. Assicurati di essere nella cartella dei build: cd circuits/build
-2. Download del file Powers of Tau: wget [https://storage.googleapis.com/zkevm/ptau/powersOfTau28_hez_final_20.ptau](https://storage.googleapis.com/zkevm/ptau/powersOfTau28_hez_final_20.ptau)
-3. Generazione della Proving Key: dato che il circuito conta circa 871.102 vincoli, la generazione della .zkey richiede molta RAM. Utilizziamo lo Swap di sistema e aumentiamo il limite di memoria di Node.js per evitare crash:
+1. Compilare il circuito .circom:
+   cd circuits
+   circom circuits/wallet_verifier.circom --r1cs --wasm --sym --output ./circuits/build -l node_modules
+2. Spostati nella cartella dei build: cd circuits/build
+3. Download del file Powers of Tau: wget https://storage.googleapis.com/zkevm/ptau/powersOfTau28_hez_final_20.ptau
+4. Generazione della Proving Key: dato che il circuito conta circa 871.102 vincoli, la generazione della .zkey richiede molta RAM. Utilizziamo lo Swap di sistema e aumentiamo il limite di memoria di Node.js per evitare crash:
    node --max-old-space-size=12288 $(which snarkjs) groth16 setup ../wallet_verifier.r1cs powersOfTau28_hez_final_20.ptau wallet_verifier_final.zkey
-4. Esportazione della Verification Key: snarkjs zkey export verificationkey wallet_verifier_final.zkey verification_key.json
+5. Esportazione della Verification Key: snarkjs zkey export verificationkey wallet_verifier_final.zkey verification_key.json
+
 ## Setup del Progetto
 
 ### 1. Configurazione Variabili d'Ambiente
@@ -25,8 +29,8 @@ Per motivi di sicurezza, il file `.env` non è incluso nella repository. Crea un
 
 ```env
 PRIVATE_KEY=IL_TUO_PRIVATE_KEY_0x... (Chiave privata del tuo wallet)
-RPC_URL=[https://sepolia-rpc.scroll.io](https://sepolia-rpc.scroll.io)
-CONTRACT_ADDRESS=0xE8A9D15914BF2E4A17a5508b89A2CcF4b25D0244
+RPC_URL=https://sepolia-rpc.scroll.io
+CONTRACT_ADDRESS=0xE8A9D15914BF2E4A17a5508b89A2CcF4b25D0244 (indirizzo Smart Contract deployato on-chain
 ```
 
 ### 2. Preparazione del file mail
