@@ -30,7 +30,7 @@ Per motivi di sicurezza, il file `.env` non è incluso nella repository. Crea un
 ```env
 PRIVATE_KEY=IL_TUO_PRIVATE_KEY_0x... (Chiave privata del tuo wallet)
 RPC_URL=https://sepolia-rpc.scroll.io
-CONTRACT_ADDRESS=0xE8A9D15914BF2E4A17a5508b89A2CcF4b25D0244 (indirizzo Smart Contract deployato on-chain
+CONTRACT_ADDRESS=0xE8A9D15914BF2E4A17a5508b89A2CcF4b25D0244 (indirizzo Smart Contract deployato on-chain)
 ```
 
 ### 2. Preparazione del file mail
