@@ -1,10 +1,7 @@
 # ZK-MailProof
 
 **ZK-MailProof** è un protocollo di attestazione di identità decentralizzata e anonima. Permette a un utente di dimostrare on-chain il possesso di un indirizzo email appartenente a un dominio specifico (es. `@gmail.com`) senza mai rivelare l'indirizzo email reale, sfruttando le firme **DKIM** e le prove a conoscenza zero (**ZK-SNARKs**).
-
-"Il progetto ZK-MailProof è rilasciato sotto licenza MIT. Questa scelta riflette la volontà di contribuire all'ecosistema delle tecnologie a conoscenza zero (ZK) con un protocollo aperto, modulare e facilmente integrabile. La natura permissiva della licenza favorisce la massima diffusione del codice, permettendo a terze parti di implementare soluzioni di identità sovrana senza restrizioni, garantendo al contempo la protezione legale degli autori tramite la clausola di esclusione di responsabilità."
-
-Il progetto è distribuito sulla rete **Scroll Sepolia L2**.
+Il progetto è distribuito sulla rete di test **Scroll Sepolia L2**.
 
 ## Requisiti Hardware
 Il circuito crittografico genera circa **871.000 vincoli**. Per evitare errori di memoria (`Out of Bounds`) su macchine con 8GB di RAM:
